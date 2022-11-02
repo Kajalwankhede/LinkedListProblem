@@ -42,6 +42,18 @@ public Node head=null;
             current.next=newNode;
         }
 
+        public void deleteElement(){
+        if(this.head!=null) {
+            Node temp=this.head;
+            this.head=this.head.next;
+            temp= null;
+        }
+
+
+        }
+
+
+
     public void display() {                 // Print the linked list
         Node current = head;
 
@@ -49,7 +61,7 @@ public Node head=null;
             System.out.println("List is empty");
             return;
         }
-        System.out.println("\nNodes of linked list ");
+        System.out.println("Nodes of linked list ");
         while (current != null) {
             System.out.print(current.data + " ");
             current = current.next;
@@ -62,7 +74,11 @@ public Node head=null;
        li.addNode(56);
        li.addNode(70);
         li.display();
+        System.out.println("\nAdded new element:");
        li.insertBetweenNode(30);
+        li.display();
+        System.out.println("\n\nAfter deleting first element:");
+        li.deleteElement();
         li.display();
 
     }
