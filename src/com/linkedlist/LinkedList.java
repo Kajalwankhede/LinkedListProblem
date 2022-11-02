@@ -11,21 +11,30 @@ public class LinkedList {
             next = null;
         }
     }
-public Node head=null;
-    public Node tail=null;
-    public void addNode(int d){
-        Node newNode=new Node(d);
-        if (head==null){
-            head=newNode;
-            tail=newNode;
+
+    public Node head = null;
+    public Node tail = null;
+
+    public void addNode(int d) {
+        Node newNode = new Node(d);
+        if (head == null) {
+            head = newNode;
+        } else {
+
+            newNode.next = head;
+            head = newNode;
         }
-        else{
-            tail.next=newNode;
-            tail=newNode;
-        }
+        tail = newNode;
+
     }
-    public void display() {                 // Print the linked list
+    public void display() {
         Node current = head;
+
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("Nodes of linked list ");
         while (current != null) {
             System.out.print(current.data + " ");
             current = current.next;
@@ -34,11 +43,9 @@ public Node head=null;
     }
     public static void main(String[] args) {
         LinkedList li = new LinkedList();
-        li.addNode(56);
+        li.addNode(70);
         li.addNode(30);
-        li.addNode( 70);
-        System.out.println("Linked list: ");
+        li.addNode(56);
         li.display();
-
     }
 }
