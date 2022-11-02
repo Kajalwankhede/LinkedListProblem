@@ -28,6 +28,20 @@ public Node head=null;
         tail = newNode;
 
     }
+    public void insertBetweenNode(int a){
+        Node newNode=new Node( a);
+        Node current=head;
+        while(current!=null) {
+            if (current.data != 56) {
+                current = current.next;
+            } else if (current.data == 56)
+                break;
+        }
+            Node temp=current.next;
+            newNode.next=temp;
+            current.next=newNode;
+        }
+
     public void display() {                 // Print the linked list
         Node current = head;
 
@@ -35,7 +49,7 @@ public Node head=null;
             System.out.println("List is empty");
             return;
         }
-        System.out.println("Nodes of linked list ");
+        System.out.println("\nNodes of linked list ");
         while (current != null) {
             System.out.print(current.data + " ");
             current = current.next;
@@ -44,11 +58,11 @@ public Node head=null;
     }
     public static void main(String[] args) {
         LinkedList li = new LinkedList();
-
         System.out.println("Linked list: ");
-        li.addNode(56);
-        li.addNode(30);
-        li.addNode(70);
+       li.addNode(56);
+       li.addNode(70);
+        li.display();
+       li.insertBetweenNode(30);
         li.display();
 
     }
