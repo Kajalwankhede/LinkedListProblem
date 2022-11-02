@@ -51,9 +51,17 @@ public Node head=null;
 
 
         }
+        public Node popLast(){
+        if (head==null || head.next != null) {
+            Node secondLast = head;
+            while (secondLast.next.next != null) { ///find last element
+                secondLast = secondLast.next;
+            }
+            secondLast.next = null;// change next of second last
 
-
-
+        }
+            return head;
+        }
     public void display() {                 // Print the linked list
         Node current = head;
 
@@ -77,9 +85,11 @@ public Node head=null;
         System.out.println("\nAdded new element:");
        li.insertBetweenNode(30);
         li.display();
-        System.out.println("\n\nAfter deleting first element:");
-        li.deleteElement();
+       // System.out.println("\n\nAfter deleting first element:");
+        //li.deleteElement();
         li.display();
-
+      li.popLast();
+        System.out.println("\n\nAfter deleting last element:");
+        li.display();
     }
 }
