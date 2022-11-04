@@ -62,6 +62,22 @@ public Node head=null;
         }
             return head;
         }
+
+        public boolean searchNode( int p) {
+            Node current = head;// initialize current
+            while (current != null) {
+                if (current.data == p) {
+                    System.out.println("Data found");
+                    return true;
+
+                }// data found
+                current = current.next;
+            }
+
+            System.out.println("Not found");
+            return false;
+
+        }
     public void display() {                 // Print the linked list
         Node current = head;
 
@@ -87,9 +103,13 @@ public Node head=null;
         li.display();
        // System.out.println("\n\nAfter deleting first element:");
         //li.deleteElement();
+       // li.display();
+      //li.popLast();
+       /// System.out.println("\n\nAfter deleting last element:");
+       // li.display();
+        System.out.println("\n\nList after search");
+        li.searchNode(30);
         li.display();
-      li.popLast();
-        System.out.println("\n\nAfter deleting last element:");
-        li.display();
+
     }
 }
