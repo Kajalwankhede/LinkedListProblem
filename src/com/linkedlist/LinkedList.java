@@ -78,6 +78,32 @@ public Node head=null;
             return false;
 
         }
+
+    public void inserAfterPositionWithKeyValue(int pos,int elementNew) {
+        Node newNode = new Node(elementNew);
+        newNode.data = elementNew;
+        newNode.next = null;
+        if(pos < 1) { // check positions
+            System.out.print("\nInvalid.");
+        } else if (pos == 1) { // Insert first node
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node temp = head;
+            for(int i = 1; i < pos-1; i++) {
+                if(temp != null) {
+                    temp = temp.next;
+                }
+            }
+            if(temp != null) {
+                newNode.next = temp.next;
+                temp.next = newNode;
+            } else {
+                System.out.print("\n previous node is null.");
+            }
+        }
+    }
+
     public void display() {                 // Print the linked list
         Node current = head;
 
@@ -110,6 +136,10 @@ public Node head=null;
         System.out.println("\n\nList after search");
         li.searchNode(30);
         li.display();
+        li.inserAfterPositionWithKeyValue(3,40);
+        System.out.println("\n\nAdding Element after node: ");
+        li.display();
+
 
     }
 }
