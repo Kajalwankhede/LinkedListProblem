@@ -122,6 +122,28 @@ public Node head=null;
         Node next =temp.next.next;// remove the node
         temp.next=next;
     }
+    public void sortLinkedList(Node head) {
+        Node current = head;
+        Node index = null;
+        int temp;
+
+        if (head == null) {  //if head null return empty
+            return;
+        } else {
+            while (current != null) { // index points to the node next to current
+                index = current.next;
+                while (index != null) {
+                    if (current.data > index.data) { //check data of current node is greater than next node / if grater swap
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
+    }
 
     public void display() {                 // Print the linked list
         Node current = head;
@@ -137,6 +159,7 @@ public Node head=null;
         }
 
     }
+
     public static void main(String[] args) {
         LinkedList li = new LinkedList();
         System.out.println("Linked list: ");
@@ -158,10 +181,13 @@ public Node head=null;
         li.inserAfterPositionWithKeyValue(3,40);
         System.out.println("\n\nAdding Element after node: ");
         li.display();
-        li.deleteNode(2);
-        System.out.println("\n\nDelete Element after node: ");
-        li.display();
+       //li.deleteNode(2);
+        //System.out.println("\n\nDelete Element after node: ");
+        //li.display();
 
+         li.sortLinkedList(li.head);
+        System.out.println("\n\nSorted Element : ");
+         li.display();
 
     }
 }
